@@ -13,10 +13,9 @@ import {
   Users,
   BookOpen,
   FileText,
-  DollarSign,
   ArrowRight,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // ✅ import useNavigate
 
 const Dashboard = () => {
   const [summary, setSummary] = useState({
@@ -25,8 +24,15 @@ const Dashboard = () => {
     enrollments: 0,
     payments: 0,
   });
-
   const [registrationData, setRegistrationData] = useState([]);
+  const navigate = useNavigate(); // ✅ for redirecting on logout
+
+  const handleLogout = () => {
+    // Clear token or session if stored
+    localStorage.removeItem("token");
+    sessionStorage.clear();
+    navigate("/"); // Redirect to login page
+  };
 
   useEffect(() => {
     axios
@@ -50,7 +56,16 @@ const Dashboard = () => {
 
   return (
     <div className="w-full min-h-screen bg-gray-100 p-6">
-      <h2 className="text-3xl font-bold text-gray-800 mb-8">Dashboard Overview</h2>
+      {/* Header with Logout */}
+      <div className="flex justify-between items-center mb-8">
+        <h2 className="text-3xl font-bold text-gray-800">Dashboard Overview</h2>
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+        >
+          Logout
+        </button>
+      </div>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
@@ -82,7 +97,7 @@ const Dashboard = () => {
         </Link>
 
         <Link to="/payments" className="bg-white p-6 rounded-xl shadow hover:shadow-lg flex items-center gap-4 transition">
-        <span className="text-purple-500 text-4xl">Rs</span>
+          <span className="text-purple-500 text-4xl">Rs</span>
           <div>
             <p className="text-gray-600">Payments</p>
             <p className="text-xl font-bold">{summary.payments}</p>
@@ -91,7 +106,7 @@ const Dashboard = () => {
         </Link>
       </div>
 
-      {/* Student Registration Trend Chart */}
+      {/* Student Registration Chart */}
       <div className="bg-white p-6 rounded-xl shadow">
         <h3 className="text-2xl font-semibold mb-4 text-gray-800">
           Monthly Student Registrations

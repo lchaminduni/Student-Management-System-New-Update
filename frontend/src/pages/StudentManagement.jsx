@@ -224,13 +224,14 @@ export default function StudentManagement() {
           </div>
 
           {/* Table */}
-<table className="w-full table-auto border-collapse border border-gray-300 text-sm">
+          <table className="w-full table-auto border-collapse border border-gray-300 text-sm text-center">
   <thead className="bg-indigo-100">
     <tr>
       <th className="border border-gray-300 p-2">Student ID</th>
       <th className="border border-gray-300 p-2">Name</th>
       <th className="border border-gray-300 p-2 min-w-[150px]">Birth Date</th>
       <th className="border border-gray-300 p-2">Gender</th>
+      <th className="border border-gray-300 p-2">Address</th> {/* ✅ New column */}
       <th className="border border-gray-300 p-2">Contact Number</th>
       <th className="border border-gray-300 p-2">Parent/Guardian Name</th>
       <th className="border border-gray-300 p-2">Registered Date</th>
@@ -240,11 +241,12 @@ export default function StudentManagement() {
   <tbody>
     {filteredStudents.length > 0 ? (
       filteredStudents.map((student) => (
-        <tr key={student.studentId} className="hover:bg-indigo-50">
+        <tr key={student.studentId} className="hover:bg-indigo-50 text-center">
           <td className="border border-gray-300 p-2">{student.studentId}</td>
           <td className="border border-gray-300 p-2">{student.name}</td>
           <td className="border border-gray-300 p-2">{student.birthDate}</td>
           <td className="border border-gray-300 p-2">{student.gender}</td>
+          <td className="border border-gray-300 p-2">{student.address}</td> {/* ✅ Address value */}
           <td className="border border-gray-300 p-2">{student.contactNumber}</td>
           <td className="border border-gray-300 p-2">{student.fmName}</td>
           <td className="border border-gray-300 p-2">{student.registeredDate}</td>
@@ -266,10 +268,7 @@ export default function StudentManagement() {
       ))
     ) : (
       <tr>
-        <td
-          colSpan="7"
-          className="text-center p-4 text-gray-500 italic"
-        >
+        <td colSpan="9" className="text-center p-4 text-gray-500 italic">
           No students found.
         </td>
       </tr>
