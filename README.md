@@ -1,48 +1,105 @@
-# Student Management System Dashboard (Frontend)
+# Student Management System
 
-This is the frontend part of a **Student Management System Dashboard** built using **ReactJS**. It offers a clean and responsive UI for managing students, classes, enrollments, and payments, with data visualization and navigation functionality.
+This is a **Student Management System** designed to help educational institutions manage students, classes, enrollments, payments, and performance efficiently.  
+It is built with **React.js** for the frontend and **Spring Boot (Java)** for the backend, with **MySQL** as the database.
 
-## 🚀 Features
+## 🚀 Technologies Used
 
-- 📊 **Dashboard Overview**  
-  Displays real-time summary of:
-  - Total Students
-  - Total Classes
-  - Total Enrollments
-  - Total Payments
+### Frontend:
+- React.js
+- Tailwind CSS
+- Axios
+- React Router DOM
+- Recharts (for charts and graphs)
 
-- 📈 **Monthly Registration Chart**  
-  Visualizes student registration trends using `recharts`.
+### Backend:
+- Spring Boot (Java)
+- Spring Data JPA
+- Spring Security (JWT Authentication)
+- MySQL
+- Hibernate
 
-- 👤 **Admin Login Display**  
-  Displays the currently logged-in admin's name on the dashboard.
+## 🔐 Features
 
-- 🧭 **Navigation Bar**  
-  Responsive navbar with navigation links to:
-  - Dashboard
-  - Home
-  - Classes (Class Details Page)
-
-- ⚡ **API Integration**  
-  Fetches data from backend endpoints via Axios.
-
-## 🛠️ Technologies Used
-
-- **React JS**
-- **React Router DOM**
-- **Axios**
-- **Tailwind CSS**
-- **Recharts**
-- **Lucide React Icons**
+- Admin login with JWT authentication
+- Dashboard with summary cards and chart for student registrations
+- Student registration and profile management
+- Class creation and management
+- Enroll students in classes
+- Track student performance (marks)
+- Manage student payments
+- Responsive user interface
 
 ## 📁 Project Structure
 
-src/
-├── components/
-│ └── Navbar.jsx
-├── pages/
-│ └── Dashboard.jsx
-├── App.js
-├── index.css
-└── main.jsx
+### Backend (Spring Boot)
+StudentManagementSystem-Backend/
+├── src/
+│ ├── main/
+│ │ ├── java/
+│ │ │ └── com.example.sms/
+│ │ │ ├── controller/
+│ │ │ ├── service/
+│ │ │ ├── model/
+│ │ │ ├── repository/
+│ │ │ └── config/
+│ │ └── resources/
+│ │ └── application.properties
 
+shell
+Copy
+Edit
+
+### Frontend (React)
+student-management-frontend/
+├── src/
+│ ├── components/
+│ ├── pages/
+│ ├── services/
+│ ├── App.jsx
+│ └── main.jsx
+
+markdown
+Copy
+Edit
+
+## ⚙️ Setup Instructions
+
+### Backend
+1. Clone the backend repo
+2. Create a MySQL database (e.g., `student_management`)
+3. Update your DB credentials in `application.properties`
+4. Run the Spring Boot application
+
+```bash
+./mvnw spring-boot:run
+Frontend
+Clone the frontend repo
+
+Navigate to the project directory
+
+Install dependencies
+
+bash
+Copy
+Edit
+npm install
+Start the React development server
+
+bash
+Copy
+Edit
+npm run dev
+Note: Make sure the backend is running on localhost:8080 or update the frontend API URLs accordingly.
+
+📊 Dashboard Overview
+Summary of total students, classes, enrollments, and payments
+
+Chart showing monthly registration trends
+
+✍️ Author
+Lihini Chamiduni Wickrama Senevirathna
+
+🏫 Bachelor of Information Technology – University of Moratuwa
+
+💻 Passionate about software development and UI/UX
